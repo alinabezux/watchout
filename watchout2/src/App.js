@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import {HomePage, MediaPage, MediaDetailsPage,  PersonPage, AccountPage,} from "./pages";
+
+import {mediaType} from "./api";
+
+import './styles'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Footer, Header} from "./components";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Header/>
+            <Routes>
+                <Route path={'/'} element={<HomePage/>}/>
+                <Route path={'/movie'} element={<MediaPage mediaTyp={mediaType.movie}/>}/>
+                <Route path={'/tv'} element={<MediaPage mediaTyp={mediaType.tv}/>}/>
+                <Route path={'/:mediaType/:id'} element={<MediaDetailsPage/>}/>
+                <Route path={'/person/:id'} element={<PersonPage/>}/>
+                <Route path={'/account'} element={<AccountPage/>}/>
+            </Routes>
+            <Footer/>
+        </BrowserRouter>
+    );
 }
 
 export default App;
