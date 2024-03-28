@@ -1,0 +1,47 @@
+.carousel img {
+    width: 100vw;
+
+}
+
+.carousel {
+    top: -80px;
+    z-index: 0;
+}
+
+.item {
+    position: relative;
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5271358543417367) 0%, rgba(0, 0, 0, 0.11817226890756305) 51%, rgba(0, 0, 0, 1) 100%);
+
+}
+
+.carousel-caption {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    top: 25%;
+
+}
+
+.carousel h1 {
+    font-size: 50px;
+    font-weight: 800;
+    text-align: start;
+
+}
+
+.carousel p {
+    font-size: 18px;
+    text-align: start;
+}
+
